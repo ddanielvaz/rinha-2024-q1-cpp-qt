@@ -1,0 +1,11 @@
+curl -vd '{"valor":8500, "tipo":"d", "descricao": "descricao"}' -H "Content-Type: application/json" -X POST http://localhost:9999/clientes/2/transacoes
+printf "\n\n"
+curl -vd '{"valor": 1.2, "tipo": "d", "descricao": "devolve"}' -H "Content-Type: application/json" -X POST http://localhost:9999/clientes/2/transacoes
+printf "\n\n"
+curl -vd '{"valor": 1, "tipo": "d", "descricao": null}' -H "Content-Type: application/json" -X POST http://localhost:9999/clientes/2/transacoes
+printf "\n\n"
+curl -vd '{"valor": 1, "tipo": "d", "descricao": ""}' -H "Content-Type: application/json" -X POST http://localhost:9999/clientes/2/transacoes
+printf "\n\n"
+curl -vd '{"valor": 12, "tipo": "d", "descricao": "descricao"}' -H "Content-Type: application/json" -X POST http://localhost:9999/clientes/2/transacoes
+printf "\n\n"
+curl -v -X GET http://localhost:9999/clientes/2/extrato
