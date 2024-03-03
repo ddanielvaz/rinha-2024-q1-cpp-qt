@@ -8,13 +8,12 @@ endif()
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "")
     set(CMAKE_BUILD_TYPE Release)
@@ -81,5 +80,11 @@ if(${CMAKE_BUILD_TYPE} STREQUAL "Release")
     target_compile_definitions(${target} PRIVATE
         QT_NO_DEBUG_OUTPUT
         QT_NO_WARNING_OUTPUT
+    )
+endif()
+
+if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+    target_compile_definitions(${target} PUBLIC
+        DEBUG_MODE
     )
 endif()

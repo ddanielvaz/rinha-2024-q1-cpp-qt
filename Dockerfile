@@ -8,9 +8,7 @@ RUN apk add --no-cache \
         qt6-qthttpserver-dev \
         cmake \
 		g++ \
-		make
-
-RUN apk add --no-cache \
+		make \
         qt6-qtbase-postgresql \
         libpq libpq-dev
 
@@ -25,12 +23,11 @@ CMD ["/app/./rinha_cpp"]
 
 FROM alpine:latest AS prod
 RUN apk add --no-cache \
-		qt6-qtbase \
-        qt6-qtbase-sqlite \
+        qt6-qtbase \
         qt6-qthttpserver \
-		g++ \
         qt6-qtbase-postgresql \
-        libpq
+        libpq \
+        libstdc++
 
 COPY --from=base /app/rinha_cpp /usr/bin/rinha_cpp
 EXPOSE 3000
